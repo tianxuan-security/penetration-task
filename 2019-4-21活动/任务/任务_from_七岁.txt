@@ -1,0 +1,17 @@
+#Task:Network man-in-the-middle attack
+Most websites on the web use secure HTTPS, but is using HTTPS really safe?
+Please use network man-in-the-middle attack on website login interface detection, transmission of information to obtain a user name and password, take a look at the domestic netease mail and taobao, the difference between landing interface, why taobao login password bar still can prevent the middleman information capture.
+Assuming that you've been attacked party issued a certificate，Ignore browser alert information.
+Just t do it!
+
+#思路：
+在整个攻击过程中
+ARP地址欺骗的过程是让整个流量流经中间人攻击者，但是我们还要伪造一张证书，让加密的流量流经攻击者的机器的时候可以进行解密出来看到明文的内容
+
+SSL中间人攻击的前提：
+    客户端已经信任了伪造证书的颁发机构
+    攻击者控制了合法证书颁发机构
+    客户端程序禁止了显示证书错误报告
+    攻击者已经控制了客户端，并强制其信任伪造证书
+
+可能用到的工具和功能：Mitmproxy、SSLsplit、openssl、arpspoof等。
